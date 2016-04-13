@@ -1,0 +1,11 @@
+- name: Add user to the docker group
+  user:
+    name: "{{ whoami.stdout }}"
+    groups: docker
+    append: yes
+    createhome: no
+  become: yes
+
+- name: Install docker-machine
+  action: "shell curl -L https://github.com/docker/machine/releases/download/{{ docker_machine_version }}/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine"
+  become: yes
