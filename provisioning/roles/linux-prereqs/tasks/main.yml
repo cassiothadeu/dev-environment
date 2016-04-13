@@ -1,0 +1,46 @@
+- name: Update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  become: yes
+
+- name: Upgrade existing linux packages
+  apt: upgrade=dist
+  become: yes
+
+- name: Install the base packages
+  apt: pkg={{item}} state=installed update_cache=true
+  become: yes
+  with_items:
+    - build-essential
+    - curl
+    - nmap
+    - nfs-common # make virtualbox faster
+    - vim
+    - htop
+    - iftop
+    - python-software-properties # for `add-apt-repository` command
+    - ufw
+    - unattended-upgrades
+    - sqlite3
+    - python-pip
+
+- name: GIT | Add the GIT PPA
+  apt_repository: repo='ppa:git-core/ppa'
+  become: yes
+
+- name: GIT | Install GIT
+  apt: pkg={{ item }} state=installed update_cache=yes
+  become: yes
+  with_items:
+   - git-core
+   - git
+
+- name: Configure locale after installing dependencies
+  locale_gen: name={{item}} state=present
+  become: yes
+  with_items:
+    - en_US.UTF-8
+    - pt_BR.UTF-8
+
+- name: Reconfigure locales
+  action: command dpkg-reconfigure locales
+  become: yes
