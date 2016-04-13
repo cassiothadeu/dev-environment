@@ -1,0 +1,8 @@
+java_version: 8
+
+node_version: 4
+nvm_version: 0.31.0
+
+update_docker_package: yes
+docker_opts: "-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
+docker_machine_version: v0.6.0
