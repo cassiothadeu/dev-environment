@@ -1,0 +1,51 @@
+- name: Node.js | Add the node.js PPA
+  action: "shell curl -sL https://deb.nodesource.com/setup_{{ node_version }}.x | sudo -E bash -"
+  become: yes
+
+- name: Node.js | Install nodejs
+  action: apt pkg={{ item }} state=installed update_cache=yes
+  become: yes
+  with_items:
+   - nodejs
+
+- name: Node.js | Install nvm
+  action: "shell curl -o- https://raw.githubusercontent.com/creationix/nvm/v{{ nvm_version }}/install.sh | bash"
+
+- name: Node.js | Install yeoman
+  npm: name=yo global=yes
+  become: yes
+
+- name: Node.js | Install bower
+  npm: name=bower global=yes
+  become: yes
+
+- name: Node.js | Install gulp-cli
+  npm: name=gulp-cli global=yes
+  become: yes
+
+- name: Node.js | Install grunt-cli
+  npm: name=grunt-cli global=yes
+  become: yes
+
+- name: Node.js | Install nodemon
+  npm: name=nodemon global=yes
+  become: yes
+
+- name: Node.js | Install node-dev
+  npm: name=node-dev global=yes
+  become: yes
+
+- name: Node.js | Install node-debug
+  npm: name=node-debug global=yes
+  become: yes
+
+- name: Node.js | Install avn
+  npm: name=avn global=yes
+  become: yes
+
+- name: Node.js | Install avn-nvm
+  npm: name=avn-nvm global=yes
+  become: yes
+
+- name: Node.js | Configure avn
+  action: shell avn setup
