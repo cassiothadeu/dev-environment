@@ -1,0 +1,39 @@
+- name: ROBOMONGO | Download Robomongo
+  get_url: url="https://download.robomongo.org/{{ robomongo_version }}/linux/robomongo-{{ robomongo_version }}-x86_64.deb" dest=/tmp
+
+- name: ROBOMONGO | Install Robomongo
+  apt: deb=/tmp/robomongo-{{ robomongo_version }}-x86_64.deb
+  become: yes
+
+- name: MYSQLWORKBENCH | Download Mysql Workbench
+  get_url: url="https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-{{ mysqlworkbench_version }}-amd64.deb" dest=/tmp
+
+- name: MYSQLWORKBENCH | Install Mysql Workbench
+  apt: deb=/tmp/mysql-workbench-community-{{ mysqlworkbench_version }}-amd64.deb
+  become: yes
+
+- name: SMARTGIT | Download Smartgit
+  get_url: url="http://www.syntevo.com/static/smart/download/smartgit/smartgit-{{ smartgit_version }}.deb" dest=/tmp
+
+- name: SMARTGIT | Install Smartgit
+  apt: deb=/tmp/smartgit-{{ smartgit_version }}.deb
+  become: yes
+
+########### IGNORING SoapUI Installation ###########
+# - name: SoapUI | Download SoapUI
+#   get_url: url="http://cdn01.downloads.smartbear.com/soapui/{{ soapui_version }}/SoapUI-x64-{{ soapui_version }}.sh" dest=/tmp
+#
+# - name: SoapUI | Change permission SoapUI
+#   file: path=/tmp/SoapUI-x64-{{ soapui_version }}.sh mode="u=rwx,g=rwx,o=rx"
+#   become: yes
+#
+# - name: SoapUI | Install SoapUI
+#   action: "bash /tmp/SoapUI-x64-{{ soapui_version }}.sh"
+#   become: yes
+#
+########### IGNORING SoapUI Installation ###########
+# - name: SQLDEVELOPER | Download Sqldeveloper
+#   get_url:
+#     url:     http://download.oracle.com/otn/java/sqldeveloper/sqldeveloper-4.0.2.15.21-no-jre.zip
+#     headers: 'Cookie:oraclelicense=accept-securebackup-cookie'
+#     dest:    /tmp
