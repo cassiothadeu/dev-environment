@@ -1,0 +1,13 @@
+- name: ATOM | Download Atom
+  action: "shell wget https://atom.io/download/deb -O /tmp/atom-amd64.deb"
+
+- name: ATOM | Install Atom
+  apt: deb=/tmp/atom-amd64.deb
+  become: yes
+
+- name: SUBLIME | Download Sublime 3
+  get_url: url=https://download.sublimetext.com/sublime-text_build-3103_amd64.deb dest=/tmp
+
+- name: SUBLIME | Install Sublime 3
+  apt: deb=/tmp/sublime-text_build-3103_amd64.deb
+  become: yes
