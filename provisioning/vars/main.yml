@@ -1,3 +1,5 @@
+ubuntu_version: trusty
+
 java_version: 8
 
 node_version: 4
@@ -8,3 +10,5 @@ docker_opts: "-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
 docker_machine_version: v0.6.0
 
 maven_version: 3.3.9
+
+vagrant_version: 1.8.1
