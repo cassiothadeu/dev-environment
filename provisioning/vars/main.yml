@@ -1,4 +1,4 @@
-ubuntu_version: trusty
+ubuntu_version: xenial
 
 java_version: 8
 
@@ -14,7 +14,5 @@ maven_version: 3.3.9
 vagrant_version: 1.8.1
 
 robomongo_version: 0.8.5
-
-mysqlworkbench_version: "6.3.6-1ubu1404"
 
 smartgit_version: "7_1_2"
