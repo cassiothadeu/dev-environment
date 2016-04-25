@@ -1,0 +1,44 @@
+- name: SLACK | Download Slack
+  get_url: url=https://downloads.slack-edge.com/linux_releases/slack-desktop-2.0.3-amd64.deb dest=/tmp
+
+- name: SLACK | Install Slack
+  apt: deb=/tmp/slack-desktop-2.0.3-amd64.deb
+  become: yes
+
+- name: CHROME | Add Repository
+  apt_repository: repo='deb http://dl.google.com/linux/chrome/deb/ stable main' state=present
+
+- name: CHROME | Add Key
+  apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub
+  become: yes
+
+- name: CHROME | Install Google Chrome
+  apt: pkg=google-chrome-stable state=installed update_cache=true
+  become: yes
+
+- name: SPOTIFY | Add Repository
+  apt_repository: repo='deb http://repository.spotify.com stable non-free' state=present
+  become: yes
+
+- name: SPOTIFY | Add Key
+  apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=BBEBDCB318AD50EC6865090613B00F1FD2C19886
+  become: yes
+
+- name: SPOTIFY | Install Spotify
+  apt: pkg=spotify-client state=installed update_cache=true
+  become: yes
+
+- name: VLC | Install Vlc
+  apt: pkg=vlc state=installed update_cache=true
+  become: yes
+
+- name: SKYPE | Install Skype
+  apt: pkg=skype state=installed update_cache=true
+  become: yes
+
+- name: DROPBOX | Download Dropbox
+  get_url: url=https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb dest=/tmp
+
+- name: DROPBOX | Install Dropbox
+  apt: deb=/tmp/dropbox_2015.10.28_amd64.deb
+  become: yes
