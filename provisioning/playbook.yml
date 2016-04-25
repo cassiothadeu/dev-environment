@@ -1,0 +1,19 @@
+---
+- name: Configure dev-environment
+  hosts: all
+  # become: true
+  vars_files:
+    - vars/main.yml
+  roles:
+    ### Server provisioning roles:
+    - { role: linux-prereqs, tags: ['linux-prereqs'] }
+    - { role: shell, tags: ['shell'] }
+    - { role: oracle-java, tags: ['oracle-java'], become: yes }
+    - { role: nodejs, tags: ['nodejs'] }
+    - { role: docker-ubuntu, tags: ['docker-ubuntu'], become: yes }
+    - { role: docker-extras, tags: ['docker-extras'] }
+    - { role: java-ecosystem, tags: ['java-ecosystem'] }
+    - { role: virtual-machine, tags: ['virtual-machine'] }
+    - { role: editors, tags: ['editors'] }
+    - { role: tools, tags: ['tools'] }
+    - { role: applications, tags: ['applications'] }

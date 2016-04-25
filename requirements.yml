@@ -1,0 +1,7 @@
+# Install a role from the Ansible Galaxy
+
+- name: oracle-java
+  src: williamyeh.oracle-java
+
+- name: docker-ubuntu
+  src: angstwad.docker_ubuntu

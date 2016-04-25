@@ -1,0 +1,5 @@
+.vagrant
+ubuntu*.log
+provisioning/roles/docker-ubuntu
+provisioning/roles/oracle-java
+playbook.retry
