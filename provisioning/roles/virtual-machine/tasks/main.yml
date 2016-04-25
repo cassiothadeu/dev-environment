@@ -1,8 +1,8 @@
 - name: VIRTUALBOX | Download Virtualbox
-  get_url: url="http://download.virtualbox.org/virtualbox/5.0.16/virtualbox-5.0_5.0.16-105871~Ubuntu~{{ ubuntu_version }}_amd64.deb" dest=/tmp
+  get_url: url="http://download.virtualbox.org/virtualbox/5.0.18/virtualbox-5.0_5.0.18-106667~Ubuntu~{{ ubuntu_version }}_amd64.deb" dest=/tmp
 
 - name: VIRTUALBOX | Install Virtualbox
-  apt: deb="/tmp/virtualbox-5.0_5.0.16-105871~Ubuntu~{{ ubuntu_version }}_amd64.deb"
+  apt: deb="/tmp/virtualbox-5.0_5.0.18-106667~Ubuntu~{{ ubuntu_version }}_amd64.deb"
   become: yes
 
 - name: VAGRANT | Download Vagrant
