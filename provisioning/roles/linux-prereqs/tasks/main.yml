@@ -31,9 +31,10 @@
     - python-pip
     - unity-tweak-tool
     - tree
-    - ca-certificates-java 
+    - ca-certificates-java
     - java-common
     - openjdk-9-jre-headless
+    - youtube-dl
 
 - name: GIT | Add the GIT PPA
   apt_repository: repo='ppa:git-core/ppa'
