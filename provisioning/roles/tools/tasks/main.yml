@@ -5,11 +5,8 @@
   apt: deb=/tmp/robomongo-{{ robomongo_version }}-x86_64.deb
   become: yes
 
-- name: MYSQLWORKBENCH | Download Mysql Workbench
-  get_url: url="https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-{{ mysqlworkbench_version }}-amd64.deb" dest=/tmp
-
 - name: MYSQLWORKBENCH | Install Mysql Workbench
-  apt: deb=/tmp/mysql-workbench-community-{{ mysqlworkbench_version }}-amd64.deb
+  apt: pkg=mysql-workbench state=installed update_cache=true
   become: yes
 
 - name: SMARTGIT | Download Smartgit
