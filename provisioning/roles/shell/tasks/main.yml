@@ -4,3 +4,6 @@
 
 - name: Install oh-my-zsh
   action: "shell curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sudo -E bash -"
+
+- name: Install YADR
+  action: "shell curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh | sudo -E bash -"
