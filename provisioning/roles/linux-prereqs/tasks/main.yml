@@ -35,6 +35,7 @@
     - java-common
     - openjdk-9-jre-headless
     - youtube-dl
+    - bleachbit
 
 - name: GIT | Add the GIT PPA
   apt_repository: repo='ppa:git-core/ppa'
