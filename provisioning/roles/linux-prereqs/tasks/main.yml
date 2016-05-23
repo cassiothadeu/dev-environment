@@ -37,6 +37,7 @@
     - youtube-dl
     - bleachbit
     - blueman
+    - tmux
 
 - name: GIT | Add the GIT PPA
   apt_repository: repo='ppa:git-core/ppa'
